@@ -440,7 +440,7 @@ class Scheduler(object):
         # wait for I/O on Listener and event Queue
         try:
             fds, _, _ = select(
-                [self.listener._listener._socket.fileno(),
+                [self.listener._listener._socket.fileno(),  # type: ignore
                  self.event_queue._reader.fileno()],
                 [],
                 [],
@@ -456,7 +456,7 @@ class Scheduler(object):
 
         if len(fds) > 0:
             for fd in fds:
-                if fd == self.listener._listener._socket.fileno():
+                if fd == self.listener._listener._socket.fileno():  # type: ignore
                     if self.shutdown:
                         # during shutdown we don't handle incoming
                         # message anymore
