@@ -8,7 +8,7 @@ import logging
 import os
 import pdb
 from codecs import open
-from site import main as refresh_pythonpath
+from site import main as refresh_pythonpath  # type: ignore
 import sys
 from argparse import (
     ArgumentParser,
@@ -17,7 +17,7 @@ from argparse import (
 )
 
 try:
-    from pkg_resources import (
+    from pkg_resources import (  # type: ignore
         _initialize_master_working_set as refresh_distributions
     )
 except ImportError:  # pragma: nocover
