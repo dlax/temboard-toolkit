@@ -100,7 +100,7 @@ def logmethod(raw):
 
 
 def syslogfacility(raw):
-    if raw not in SysLogHandler.facility_names:
+    if raw not in SysLogHandler.facility_names:  # type: ignore
         raise ValueError('unkown syslog facility')
     return raw
 

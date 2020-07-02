@@ -136,7 +136,7 @@ def generate_logging_config(
 
     verbose = debug or level == 'DEBUG'
 
-    facility = SysLogHandler.facility_names[facility]
+    facility = SysLogHandler.facility_names[facility]  # type: ignore
     HANDLERS['syslog']['facility'] = facility
     HANDLERS['syslog']['address'] = destination
     HANDLERS['file']['filename'] = destination
